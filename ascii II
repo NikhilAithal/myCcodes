@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+#include <stdio.h>
+
+int main() {
+   
+    int asciiValue;
+
+    scanf("%d", &asciiValue);
+
+    printf("%c\n", asciiValue);
+
+    return 0;
+}
