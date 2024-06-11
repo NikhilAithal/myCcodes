@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+
+int main() {
+    
+    int a, b, c;
+
+ 
+    scanf("%d", &a);
+    scanf("%d", &b);
+    scanf("%d", &c);
+
+   
+    int revenue = a * b;
+
+  
+    int totalCost = a * c + 100;
+
+   
+    int profit = revenue - totalCost;
+
+    // Output the profit
+    printf("%d\n", profit);
+
+    return 0;
+}
