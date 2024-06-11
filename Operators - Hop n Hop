@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+    // Declare variables to store coordinates of Peter Rabbit's house and his friend's house
+    int peterX = 3, peterY = 4;
+    int friendX, friendY;
+
+    // Input coordinates of friend's house
+    scanf("%d %d", &friendX, &friendY);
+
+    // Calculate maximum distance (number of hops)
+    int distanceX = abs(friendX - peterX);
+    int distanceY = abs(friendY - peterY);
+    int maxDistance = (distanceX > distanceY) ? distanceX : distanceY;
+
+    // Output the result
+    printf("%d\n", maxDistance);
+
+    return 0;
+}
+
