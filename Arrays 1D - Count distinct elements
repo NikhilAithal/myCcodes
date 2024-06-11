@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define MAX_SIZE 1000
+
+void readNumbers(int* numbers, int Size) {
+    for (int i = 0; i < Size; i++) {
+        scanf("%d", &numbers[i]);
+    }
+}
+
+int FindDistinctCount(int* numbers, int Size) {
+    int count = 0;
+    
+    for (int i = 0; i < Size; i++) {
+        if (numbers[i] != -999) {
+            count++;
+            for (int j = i + 1; j < Size; j++) {
+                if (numbers[i] == numbers[j]) {
+                    numbers[j] = -999;  // Mark duplicates
+                }
+            }
+        }
+    }
+    
+    return count;
+}
+
+int main() {
+    int size, count = 0;
+    int array[MAX_SIZE];
+    
+   
+    scanf("%d", &size);
+    
+
+    readNumbers(array, size);
+    
+    count = FindDistinctCount(array, size);
+    
+    printf("There are %d distinct element in the array.", count);
+    
+    return 0;
+}
