@@ -1,0 +1,12 @@
+double myPow(double x, int n) {
+    if(n<INT_MIN/x|| n>INT_MAX/x)
+    return 0;
+    if(n<0)
+    {
+  
+    x= pow(1/x,n);
+ }
+    else
+    x= pow(x,n);
+    return x;
+}
