@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+      int num,second,temp;
+    scanf("%d",&num);
+    
+   if(num>=100 && num<=999)   
+   { 
+       
+       temp = num / 10;
+       second = temp % 10;
+     if(second % 3 == 0)
+         printf("Trendy Number");
+       else
+           printf("Not a Trendy Number");
+      
+   }
+    else
+        printf("Invalid Number");
+        
+    return 0;
+
+}
