@@ -1,4 +1,4 @@
-
+//stack.h
 #define E_T_DEFAULT 0.0f
 typedef float E_t; 
 typedef int BOOL; 
@@ -14,3 +14,65 @@ BOOL full(stack_t *rstack);
 int size(stack_t *rstack);
 void push(stack_t *rstack,E_t item);
 void pop(stack_t *rstack);
+
+//stack.c
+#include<stdio.h>
+#include"stack.h"
+BOOL empty(stack_t *rstack) { //similar to like self in python
+    return (rstack->top_index == -1);
+}
+
+E_t top(stack_t *rstack) {
+    if(empty(rstack)){ //self
+        printf("Stack Empty");
+        return E_T_DEFAULT;
+    }
+
+    return rstack->items[rstack->top_index];
+}
+
+
+
+//main function where the user defines values for stacks example
+
+#include<stdio.h>
+#include"stack.h"
+int main () {
+    stack_t salary_stack={-1,{}};//initial the stack object in main func
+    
+    push(&salary_stack,2000.0f);
+    push(&salary_stack,3000.0f);
+    push(&salary_stack,5000.0f);
+    push(&salary_stack,3500.0f);
+    push(&salary_stack,2500.0f);
+    push(&salary_stack,1500.0f);//!!!
+
+    printf("%.2f ", top(&salary_stack)); pop(&salary_stack);
+    printf("%.2f ", top(&salary_stack)); pop(&salary_stack);
+    printf("%.2f ", top(&salary_stack)); pop(&salary_stack);
+    printf("%.2f ", top(&salary_stack)); pop(&salary_stack);
+    printf("%.2f ", top(&salary_stack)); pop(&salary_stack);
+    printf("%.2f ", top(&salary_stack)); pop(&salary_stack);//!!!
+    
+     stack_t expense_stack={-1,{}};//initial the stack object in main func
+    
+    push(&expense_stack,2000.0f);
+    push(&expense_stack,3000.0f);
+    push(&expense_stack,5000.0f);
+    push(&expense_stack,3500.0f);
+    push(&expense_stack,2500.0f);
+    push(&expense_stack,1500.0f);//!!!
+
+    printf("%.2f ", top(&expense_stack)); pop(&expense_stack);
+    printf("%.2f ", top(&expense_stack)); pop(&expense_stack);
+    printf("%.2f ", top(&expense_stack)); pop(&expense_stack);
+    printf("%.2f ", top(&expense_stack)); pop(&expense_stack);
+    printf("%.2f ", top(&expense_stack)); pop(&expense_stack);
+    printf("%.2f ", top(&expense_stack)); pop(&expense_stack);//!!!
+    return 0;
+}
+
+
+
+
+
