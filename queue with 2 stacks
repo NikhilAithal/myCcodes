@@ -1,0 +1,117 @@
+
+//leetcode.com/problems/implement-queue-using-stacks
+#include <stdlib.h>
+#include <stdbool.h> 
+typedef struct {
+    int* data;
+    int top;
+    int capacity;
+} MyStack;
+
+MyStack* myStackCreate(int maxSize) {
+    MyStack* stack = (MyStack*)malloc(sizeof(MyStack));
+    stack->data = (int*)malloc(maxSize * sizeof(int));
+    stack->top = -1;
+    stack->capacity = maxSize;
+    return stack;
+}
+
+bool myStackFull(MyStack* obj) {
+    return obj->top == obj->capacity - 1;
+}
+
+void myStackPush(MyStack* obj, int x) {
+    if (!myStackFull(obj)) {
+        obj->data[++obj->top] = x;
+    }
+}
+
+bool myStackEmpty(MyStack* obj) {
+    return obj->top == -1;
+}
+
+int myStackPop(MyStack* obj) {
+    if (!myStackEmpty(obj)) {
+        return obj->data[obj->top--];
+    }
+    return -1; // Return -1 if stack is empty
+}
+
+int myStackTop(MyStack* obj) {
+    if (!myStackEmpty(obj)) {
+        return obj->data[obj->top];
+    }
+    return -1; // Return -1 if stack is empty
+}
+
+void myStackFree(MyStack* obj) {
+    free(obj->data);
+    free(obj);
+}
+
+
+typedef struct {
+    MyStack* rstack1;
+    MyStack* rstack2;
+} MyQueue;
+
+MyQueue* myQueueCreate() {
+    MyQueue* rqueue = (MyQueue*)malloc(sizeof(MyQueue));
+    rqueue->rstack1 = myStackCreate(100);
+    rqueue->rstack2 = myStackCreate(100);
+    return rqueue;
+}
+
+void myQueuePush(MyQueue* obj, int x) {
+    myStackPush(obj->rstack1, x);
+}
+
+int myQueuePop(MyQueue* obj) {
+    int x;
+    if (myStackEmpty(obj->rstack2)) {
+        while (!myStackEmpty(obj->rstack1)) {
+            x = myStackPop(obj->rstack1);
+            myStackPush(obj->rstack2, x);
+        }
+    }
+    return myStackPop(obj->rstack2);
+}
+
+int myQueuePeek(MyQueue* obj) {
+    int x;
+    if (myStackEmpty(obj->rstack2)) {
+        while (!myStackEmpty(obj->rstack1)) {
+            x = myStackPop(obj->rstack1);
+            myStackPush(obj->rstack2, x);
+        }
+    }
+    x = myStackTop(obj->rstack2);
+    return x;
+}
+
+bool myQueueEmpty(MyQueue* obj) {
+    return myStackEmpty(obj->rstack1) && myStackEmpty(obj->rstack2);
+}
+
+void myQueueFree(MyQueue* obj) {
+    myStackFree(obj->rstack1);
+    myStackFree(obj->rstack2);
+    free(obj);
+    obj = NULL;
+}
+
+
+
+/**
+ * Your MyQueue struct will be instantiated and called as such:
+ * MyQueue* obj = myQueueCreate();
+ * myQueuePush(obj, x);
+ 
+ * int param_2 = myQueuePop(obj);
+ 
+ * int param_3 = myQueuePeek(obj);
+ 
+ * bool param_4 = myQueueEmpty(obj);
+ 
+ * myQueueFree(obj);
+*/
