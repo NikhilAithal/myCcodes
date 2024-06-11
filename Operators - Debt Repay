@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+       float mon;
+    scanf("%f",&mon);
+    float rate;
+    scanf("%f",&rate);
+    float nyears;
+    scanf("%f",&nyears);
+    float interest = (mon * rate * nyears)/100.0;
+    float amount = mon + interest;
+    float drate = (2 * interest)/100;
+    float Amoney = amount-drate;
+    printf("%.2f\n",interest);
+    printf("%.2f\n",amount);
+    printf("%.2f\n",drate);
+    printf("%.2f",Amoney);
+  
+    return 0;
+}
