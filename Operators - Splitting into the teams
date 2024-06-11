@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+#include <stdio.h>
+
+int main() {
+   
+    int numFriends, numTeams;   
+    scanf("%d", &numFriends);
+    scanf("%d", &numTeams);
+    int friendsPerTeam = numFriends / numTeams;
+    int leftOut = numFriends % numTeams;
+    printf("The number of friends in each team is %d and left out is %d\n", friendsPerTeam, leftOut);
+
+    return 0;
+}
