@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+    
+    int num,first,second,third;
+    scanf("%d",&num);
+    int temp1 = num;
+    int temp2 =num;
+    int temp3;
+   if(num>=100 && num<=999)   
+   { 
+       first = num/100;
+       temp3 = temp1 / 10;
+       second = temp3%10;
+       third = temp2 % 10;
+       printf("%d%d%d",third, second, first);
+   }
+    return 0;
+}
