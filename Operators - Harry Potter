@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+        int I_d;
+
+    scanf("%d",&I_d);
+    if(I_d < 0)
+        I_d = -I_d; 
+    int first = I_d/1000;
+    int last = I_d % 10;
+    int sum = first + last;
+    printf("%d",sum);
+        
+    return 0;
+}
