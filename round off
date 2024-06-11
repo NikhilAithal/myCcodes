@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+
+int main() {
+ =
+    float floatValue;
+    scanf("%f", &floatValue);
+ int val=floatValue;
+    int roundedDown = floor(floatValue);
+    int roundedUp = ceil(floatValue);
+     printf("%d\n", val);
+    printf("%d\n", roundedUp);
+printf("%d\n", roundedDown);
+    return 0;
+}
