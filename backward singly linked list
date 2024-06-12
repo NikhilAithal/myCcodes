@@ -1,0 +1,36 @@
+#include<stdio.h>
+#include<stdlib.h>
+typedef struct _node_t
+{
+    float data;
+    struct _node_t * next;//linking the list
+}node_t;
+
+node_t* CreateNode(float item)
+{
+     node_t* rE=(node_t*)malloc(sizeof(node_t));
+     rE->data = item;
+     rE->next = NULL;
+     return rE;
+
+}
+
+void DoTraversal(node_t* rE){
+if(rE==NULL) {
+return;
+    
+} 
+DoTraversal(rE->next);//backtracking using recursion
+        printf("%.2f ",rE->data);//condition
+
+}
+int main(){
+    // give values for nodes
+    node_t* head =CreateNode(34.0f);
+    head->next=CreateNode(45.0f);
+    head->next->next=CreateNode(75.0f);
+    head->next->next->next=CreateNode(67.0f);
+    head->next->next->next->next=CreateNode(97.0f);
+    DoTraversal(head);
+    return 0;
+}
