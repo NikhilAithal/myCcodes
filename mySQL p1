@@ -1,0 +1,30 @@
+CREATE DATABASE queens_coffe_db;
+USE queens_coffe_db;
+CREATE TABLE items (
+	id INTEGER primary key auto_increment,
+    name VARCHAR(512) not null,
+    price FLOAT not null default(0.0),
+    item_size VARCHAR(50) not null,
+    description VARCHAR(1024) not null
+);
+
+INSERT INTO items( name ,price ,item_size, description)
+	VALUES('COFFEE', 35.00,'small','premium Coffee'),
+			('COFFEE1', 135.00,'small','premium Coffee but with choco'),
+			('tEA', 325.00,'small','premium Tea from China Beijing'),			
+			('fruit Shake', 353.00,'small','premium refreshment'),
+			('fruit shake', 1354.00,'large','premium refreshment');
+DESC items;
+SELECT * FROM items;
+
+
+UPDATE items
+SET price =200.0
+WHERE id=2;
+
+SELECT * FROM items WHERE name='tea';
+SELECT * FROM items WHERE price >=40;
+SELECT * FROM items WHERE description like '%refreshment%'; -- dispalys elemnts with refreshment in their description
+SELECT * FROM items items WHERE price =200 OR price=1354;-- prints all items with equivalent prices given
+SELECT * FROM items WHERE price  IN (200,1354);-- prints all items with equivalent prices given
+SELECT * FROM items WHERE item_size = 'small';
